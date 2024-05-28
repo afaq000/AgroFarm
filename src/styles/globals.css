@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+      to bottom,
+      transparent,
+
+      rgb(var(--background-end-rgb))
+    );
+    /* rgb(var(--background-start-rgb)); */
+  }
+
+  @layer utilities {
+    .text-balance {
+      text-wrap: balance;
+    }
+  }
+  
+
+/* user side bar */
+#scroll-1 {
+  overflow-x: hidden; 
+  overflow-y: auto; 
+}
+#scroll-1::-webkit-scrollbar-track {
+  background-color: #0c0539 ;
+}
+#scroll-1::-webkit-scrollbar-thumb {
+  background-color: #0c0539;
+  height: 2px;
+}
+#scroll-1::-webkit-scrollbar {
+  width: 2px;
+  height: 8px;
+  background-color: #0c0539;
+}
+#scroll-1::-webkit-scrollbar-thumb {
+  background-color: #0c0539;
+  height: 2px;
+}
+
+#scroll-1::-webkit-scrollbar-thumb {
+  background-color: rgb(191, 191, 177);
+}
+
+.slide {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #0c0539; */
+  padding: 0px;
+  margin: 0px;
+}
+
+.slide-content {
+  text-align: center;
+  color: white;
+}
+
+
+
+
+
+.scroll-text {
+  /* overflow: hidden; */
+  /* white-space: nowrap; */
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+@keyframes Aboutcontent {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+.task-scroll::-webkit-scrollbar-track {
+  background-color: #c31919;
+}
+.task-scroll::-webkit-scrollbar-thumb {
+  background-color: #df1b1b;
+  height: 2px;
+}
+.task-scroll::-webkit-scrollbar {
+  width: 2px;
+  height: 8px;
+  background-color: #b91f1f;
+}
+
+.task-scroll::-webkit-scrollbar-thumb {
+  background-color: #ac2626;
+  height: 2px;
+}
+
+#scroll-2::-webkit-scrollbar-track {
+  display: none !important;
+}
+#scroll-2::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+#scroll-2::-webkit-scrollbar {
+  display: none !important;
+}
+
+#scroll-2::-webkit-scrollbar-thumb {
+  display: none !important;
+}

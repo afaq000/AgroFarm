@@ -1,0 +1,32 @@
+.task-scroll::-webkit-scrollbar-track {
+    background-color: #c31919;
+  }
+  .task-scroll::-webkit-scrollbar-thumb {
+    background-color: #df1b1b;
+    height: 2px;
+  }
+  .task-scroll::-webkit-scrollbar {
+    width: 2px;
+    height: 8px;
+    background-color: #b91f1f;
+  }
+  
+  .task-scroll::-webkit-scrollbar-thumb {
+    background-color: #ac2626;
+    height: 2px;
+  }
+  
+  #scroll-2::-webkit-scrollbar-track {
+    display: none !important;
+  }
+  #scroll-2::-webkit-scrollbar-thumb {
+    display: none !important;
+  }
+  #scroll-2::-webkit-scrollbar {
+    display: none !important;
+  }
+  
+  #scroll-2::-webkit-scrollbar-thumb {
+    display: none !important;
+  }
+  
