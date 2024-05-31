@@ -96,22 +96,6 @@ import UsersTable from '@/component/Admin/UserTable';
 
 function Index() {
 
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     try {
-  //       const response = await axios.get('http://localhost:9000/getAlluser');
-  //   console.log(response,"dataa")
-
-  //       setUsers(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching users:', error);
-  //     }
-  //   };
-
-  //   fetchUsers();
-  // }, []);
-
-
   const [users, setUsers] = useState([]);
 
   useEffect(() => {

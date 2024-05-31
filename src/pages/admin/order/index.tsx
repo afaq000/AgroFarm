@@ -1,109 +1,105 @@
-//@ts-nocheck
-import AdminSaidBar from '@/component/Admin/AdminSaidBar';
-import Header from '@/component/Admin/Header'
-import React, { useState } from 'react'
-import { Chat, Home, Task, Finance } from '../../../component/icon/sidebar';
-import OrderTable from '@/component/Admin/OrderTable';
+import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AdminSaidBar from '@/component/Admin/AdminSaidBar';
+import Header from '@/component/Admin/Header';
+import { Chat, Home, Task, Finance } from '../../../component/icon/sidebar';
+import moment from 'moment';
 
 function Index() {
-  const [Delete, setDelete]=useState(false)
+  const [orders, setOrders] = useState([]);
 
+  useEffect(() => {
+    async function fetchOrders() {
+      try {
+        const response = await fetch('http://localhost:9000/orders');
+        if (!response.ok) {
+          throw new Error('Failed to fetch orders');
+        }
+        const ordersData = await response.json();
+        setOrders(ordersData);
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+        toast.error('Failed to fetch orders');
+      }
+    }
 
-     
- 
+    fetchOrders();
+  }, []); // Empty dependency array ensures the effect runs only once on component mount
 
-  const handleDelete = (id) => {
-    // Simulate a deletion operation
-    // You can add your deletion logic here
+  const data = [
+    {
+      icon: <Home />,
+      title: 'Dashboard',
+      link: '/admin',
+    },
+    {
+      icon: <Finance />,
+      title: 'Investor',
+      link: '/admin/investor',
+    },
+    {
+      icon: <Task />,
+      title: 'Users',
+      link: '/admin/users',
+    },
+    {
+      icon: <Chat />,
+      title: 'Order',
+      link: '/admin/order',
+    },
+    {
+      icon: <Chat />,
+      title: 'Products',
+      link: '/admin/products',
+    },
+  ];
 
-    // Show the toast message
-    toast.success('Your product is successfully deleted');
-  };
-  const handleUpdate = (id) => {
-    // Simulate a deletion operation
-    // You can add your deletion logic here
-
-    // Show the toast message
-    toast.success('Your product is successfully Aprroved');
-  };
-    const data = [
-        {
-          icon: <Home />,
-          title: 'Dashboard',
-          link: '/admin',
-        },
-      
-        {
-          icon: <Finance />,
-          title: 'Invester ',
-          link: '/admin/invester',
-        },
-        {
-          icon: <Task />,
-          title: 'Users',
-          link: '/admin/users',
-        },
-        {
-          icon: <Chat />,
-          title: 'Order',
-          link: '/admin/order',
-        },
-        {
-          icon: <Chat />,
-          title: 'Products',
-          link: '/admin/products',
-        },
-      ];
-
-
-      const orders = [
-        {
-          id: '1',
-          SNo: '1',
-          UserName: 'JohnDoe',
-          ProductName: 'Product 1',
-          Amount: '100',
-          KG: '2',
-          OrderDate: '2024-05-01',
-          Email: 'john@example.com',
-          Status: 'Pending',
-        },
-        {
-          id: '2',
-          SNo: '2',
-          UserName: 'JaneDoe',
-          ProductName: 'Product 2',
-          Amount: '150',
-          KG: '3',
-          OrderDate: '2024-05-02',
-          Email: 'jane@example.com',
-          Status: 'Approved',
-        },
-        // Add more sample data as needed
-      ];
-    
-    
-    return (
-      <div className='w-full '>
-        <Header/>
-        <AdminSaidBar
+  return (
+    <div className="w-full">
+      <Header />
+      <AdminSaidBar
         data={data}
         mainClassName="max-w-[320px] w-24 sm:w-1/6 text-black"
         SideBarLogoClassName={''}
       />
-      <div className='w-full flex justify-center items-center px-10 '>
-        <div className='w-[80%] px-2 sm:px-10'>
-     <OrderTable data={orders} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
+      <div className="w-full flex justify-center items-center px-10">
+      <div className="w-[80%] overflow-x-auto ml-20 sm:ml-36 mt-10">
+            <table className="w-full min-w-[500px] text-[#092C4C]">
+              <thead>
+                <tr>
+                  <th className="border-b border-r border-gray-300 py-2 px- min-w-14">S.No</th>
+                  <th className="border-b border-r border-gray-300 px- min-w-32">User Name</th>
+                  <th className="border-b border-r border-gray-300 px- min-w-32">Email</th>
+                  <th className="border-b border-r border-gray-300 px- min-w-44">Product Name</th>
+
+                  <th className="border-b border-r border-gray-300 px-2 min-w-14">Amount</th>
+                  <th className="border-b border-r border-gray-300 px-2 min-w-14">Quantity</th>
+                  <th className="border-b border-gray-300 px- min-w-32">Order Date</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                {orders.map((order, index) => (
+                  <tr key={order._id} className='text-black font-medium text-sm'>
+                    <td className=" px-4 text-center py-4">{index + 1}</td>
+                    <td className=" px-4 text-center">{order.userId.name}</td>
+                    <td className=" px-4 text-center">{order.userId.email}</td>
+                    <td className=" px-4 text-center">{order.productId.name}</td>
+                    <td className=" px-4 text-center">{(order.productId.price)*(order.quantity)}</td>
+                    <td className=" px-4 text-center">{order.quantity}</td>
+                    <td className="px-4 text-center">{moment(order.orderDate).format('MM Do YYYY, h:mm:ss a')}</td>
+                    
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          {/* </div> */}
+        </div>
       </div>
-      </div>
-      <ToastContainer/>
-      </div>
-    );
+      <ToastContainer />
+    </div>
+  );
 }
 
 export default Index;
-
-
-

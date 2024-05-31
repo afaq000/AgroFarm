@@ -1,48 +1,38 @@
-//@ts-nocheck
-import BookingForm from '@/component/Buyer/BookingForm';
-import Layout from '@/component/Buyer/Layout';
-import Modal from '@/component/Modal';
-import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import Layout from "@/component/Buyer/Layout";
+import Modal from "@/component/Modal";
+import axios from "axios";
+import { SetStateAction, useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-// import Modal from './Modal'; // Import your Modal component
-// import BookingForm from './BookingForm'; // Import your BookingForm component
 
+// Index component
 function Index() {
-  const [showModal, setShowModal] = useState(false); // State to manage modal visibility
-  const [selectedProduct, setSelectedProduct] = useState(null); // State to store the selected product
+  const [showModal, setShowModal] = useState(false); 
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [quantity, setQuantity] = useState("");
+  const [address, setAddress] = useState("");
 
-  const products = [
-    {
-      id: 1,
-      name: "Calabrian Red",
-      description: "Product 2 Description",
-      image: "/BookingOrder/image-2.webp",
-      price:"500"
-    },
-    {
-        id: 2,
-        name: "Organic Garlic",
-        description: "Product 1 Description",
-        image: "/BookingOrder/image-3.webp",
-        price:"400"
-      },
-      {
-        id: 3,
-        name: "Fresh  Garlic",
-        description: "Product 2 Description",
-        image: "/BookingOrder/image-1.webp",
-        price:"300"
-      },
-  ];
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await axios.get('http://localhost:9000/products');
+        setProducts(response.data);
+        console.log(response,"response")
+      } catch (error) {
+        // setError(error.message);
+      }
+    };
 
-  const handleTostify = () => {
-    toast.success('Booking successful!')
-      setShowModal(false)
+    fetchOrders();
+  }, []);
+
+  const handleToastify = () => {
+    toast.success('Booking successful!');
+    setShowModal(false);
   };
 
-
-  const handleBookButtonClick = (product: React.SetStateAction<null>) => {
+  const handleBookButtonClick = (product) => {
     setSelectedProduct(product);
     setShowModal(true);
   };
@@ -50,6 +40,21 @@ function Index() {
   const handleModalClose = () => {
     setShowModal(false);
     setSelectedProduct(null);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:9000/orders', {
+        userId:localStorage.getItem('userId'),
+        productId:selectedProduct,
+         quantity, address });
+      console.log('Order', response.data);
+      handleToastify();
+    } catch (error) {
+      console.error('Error creating order:', error);
+      toast.error('Failed to create order. Please try again.');
+    }
   };
 
   return (
@@ -64,19 +69,19 @@ function Index() {
         </div>
         <div className='w-full flex justify-center  items-center py-20'>
           <div className='w-[80%] flex flex-col md:flex md:flex-row md:flex-wrap justify-start items-center ml-0 md:ml-24 gap-10'>
-            {products.map(product => (
-              <div key={product.id} className='w-full md:w-1/4 flex flex-col text-[#092C4C]  shadow-md '>
-                <img src={product.image} alt='' className='object-cover h-[200px] w-full' />
-                <p className='text-lg font-bold px-3'>{product.name}</p>
-                <p className='text-sm px-3'>{product.description}</p>
-                <p className='text-lg px-3 font-bold'>Rs: {product.price}</p>
-                <button onClick={() => handleBookButtonClick(product)} className='mt-6 w-full bg-[#092C4C] py-3 text-white font-bold'>Order</button>
+          {products.map((item,index) =>
+             <div key={index} className='w-full md:w-1/4 flex flex-col text-[#092C4C]  shadow-md '>
+                <img src={item.image} alt='' className='object-cover h-[200px] w-full' />
+                <p className='text-lg font-bold px-3'>{item.name}</p>
+                <p className='text-sm px-3'>{item.description}</p>
+                <p className='text-lg px-3 font-bold'>Rs: {item.price}</p>
+                <button onClick={() => handleBookButtonClick(item._id)} className='mt-6 w-full bg-[#092C4C] py-3 text-white font-bold'>Order</button>
               </div>
-            ))}
+              )}
           </div>
         </div>
 
-        {showModal && (
+        {/* {showModal && ( */}
           <Modal
             show={showModal}
             className="!w-full overflow-auto"
@@ -92,10 +97,46 @@ function Index() {
                   X
                 </div>
               </div>
-              <BookingForm product={selectedProduct} onClick={handleTostify} />
+              <div className={`w-full `}>
+                <p className="text-lg font-bold -mt-6">Details</p>
+                <form onSubmit={handleSubmit} className="flex flex-col gap-2 p-2 max-h-80vh overflow-auto">
+                  <div className="flex flex-col">
+                    <label htmlFor="quantity" className="text-sm font-semibold py-1">
+                      Quantity
+                    </label>
+                    <input
+                      type="text"
+                      id="quantity"
+                      name="quantity"
+                      className="border border-gray-300 rounded-md p-2"
+                      placeholder="Enter quantity"
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <label htmlFor="address" className="text-sm font-semibold py-1">
+                      Address
+                    </label>
+                    <textarea
+                      id="address"
+                      name="address"
+                      className="border border-gray-300 rounded-md p-2"
+                      placeholder="Enter address"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                    />
+                  </div>
+                  <div className='w-full flex justify-center'>
+                    <button className='max-w-80px bg-blue-600 rounded-lg font-semibold px-3 py-2 text-white'>
+                      <p>Order</p>
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </Modal>
-        )}
+        {/* )} */}
         <ToastContainer/>
       </div>
     </Layout>

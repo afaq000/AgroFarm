@@ -28,7 +28,7 @@ function Navbar() {
                 <Link className="teal-link borderYtoX" href={"/Buyer/products"}>Product</Link>
                 <Link className="teal-link borderYtoX" href={"/Buyer/histroy"}>Order</Link>
 
-                <Link className="teal-link borderYtoX" href={"/Buyer/home"}>Contact</Link>
+                <Link className="teal-link borderYtoX" href={"/Buyer/contactus"}>Contact</Link>
                 <Link className="teal-link borderYtoX" href={"/Buyer/login"}>Logout</Link>
               </div>
             </div>

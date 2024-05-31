@@ -17,9 +17,7 @@ type Props = {
 
 const Addproducts = ({
   className,
-  title,
   onClick,
-  ondeleteclick,
   imageURL,
   onImageChange,
   productName,

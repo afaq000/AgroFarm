@@ -1,71 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 type Props = {
   className?: string;
   title?: string;
   onClick?: () => void;
-  ondeleteclick?: () => void;
+  onSubmit: (formData: FormData) => void;
 };
 
-const BookingForm = ({
-  className,
-  title,
-  onClick,
-  ondeleteclick,
-}: Props) => {
+type FormData = {
+  quantity: string;
+  address: string;
+};
+
+const BookingForm = ({ className, title, onClick, onSubmit }: Props) => {
+  const [quantity, setQuantity] = useState("");
+  const [address, setAddress] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit({ quantity, address }); // Pass form data to onSubmit function
+  };
+
   return (
-    <div className={`${className} w-full flex flex-col gap-4 p-4 `}>
-      <p className="text-lg font-bold -mt-[25px]">Details</p>
-      {title && <h2 className="text-lg font-bold">Details</h2>}
-
-      {/* Quantity Field */}
-      <div className="flex flex-col">
-        <label htmlFor="quantity" className="text-sm font-semibold py-2">
-          Quantity In Kg
-        </label>
-        <input
-          type="text"
-          id="quantity"
-          name="quantity"
-          className="border border-gray-300 rounded-md p-2"
-          placeholder="Enter quantity In Kg"
-        />
-      </div>
-
-      {/* Address Field */}
-      <div className="flex flex-col">
-        <label htmlFor="address" className="text-sm font-semibold py-2">
-          Address
-        </label>
-        <input
-          type="text"
-          id="address"
-          name="address"
-          className="border border-gray-300 rounded-md p-2"
-          placeholder="Enter address"
-        />
-      </div>
-
-      {/* Transaction ID Field */}
-      <div className="flex flex-col">
-        <label htmlFor="transactionId" className="text-sm font-semibold py-2">
-          Transaction ID
-        </label>
-        <input
-          type="text"
-          id="transactionId"
-          name="transactionId"
-          className="border border-gray-300 rounded-md p-2"
-          placeholder="Enter transaction ID"
-        />
-      </div>
-
-      <div className='w-full flex justify-center'>
-        <button className='max-w-[80px] bg-blue-600 rounded-lg font-semibold px-3 py-2 text-white'    onClick={onClick}>
+    <div className={`w-full ${className}`}>
+      <p className="text-lg font-bold -mt-16">Details</p>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2 p-2 max-h-80vh overflow-auto">
+        <div className="flex flex-col">
+          <label htmlFor="quantity" className="text-sm font-semibold py-1">
+            Quantity
+          </label>
+          <input
+            type="text"
+            id="quantity"
+            name="quantity"
+            className="border border-gray-300 rounded-md p-2"
+            placeholder="Enter quantity"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="address" className="text-sm font-semibold py-1">
+            Address
+          </label>
+          <textarea
+            id="address"
+            name="address"
+            className="border border-gray-300 rounded-md p-2"
+            placeholder="Enter address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
+        <div className='w-full flex justify-center'>
+          <button className='max-w-80px bg-blue-600 rounded-lg font-semibold px-3 py-2 text-white'>
             <p>Order</p>
-        </button>
-
-      </div>
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
