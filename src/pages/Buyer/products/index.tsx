@@ -1,6 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
+//@ts-nocheck
 import Layout from "@/component/Buyer/Layout";
 import Modal from "@/component/Modal";
 import axios from "axios";
+import { useRouter } from "next/router";
 import { SetStateAction, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,7 +15,7 @@ function Index() {
   const [products, setProducts] = useState([]);
   const [quantity, setQuantity] = useState("");
   const [address, setAddress] = useState("");
-
+  const router = useRouter();
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -32,14 +35,23 @@ function Index() {
     setShowModal(false);
   };
 
-  const handleBookButtonClick = (product) => {
-    setSelectedProduct(product);
-    setShowModal(true);
-  };
+  // const handleBookButtonClick = (product) => {
+  //   setSelectedProduct(product);
+  //   setShowModal(true);
+  // };
 
   const handleModalClose = () => {
     setShowModal(false);
     setSelectedProduct(null);
+  };
+
+  const handleBookButtonClick = (product) => {
+    if (!localStorage.getItem('userId')) {
+      router.push(`/Buyer/login`);
+    } else {
+      setSelectedProduct(product);
+      setShowModal(true);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -71,7 +83,7 @@ function Index() {
           <div className='w-[80%] flex flex-col md:flex md:flex-row md:flex-wrap justify-start items-center ml-0 md:ml-24 gap-10'>
           {products.map((item,index) =>
              <div key={index} className='w-full md:w-1/4 flex flex-col text-[#092C4C]  shadow-md '>
-                <img src={item.image} alt='' className='object-cover h-[200px] w-full' />
+                <img src={item.imageUrl} alt='' className='object-cover h-[200px] w-full' />
                 <p className='text-lg font-bold px-3'>{item.name}</p>
                 <p className='text-sm px-3'>{item.description}</p>
                 <p className='text-lg px-3 font-bold'>Rs: {item.price}</p>
@@ -105,7 +117,7 @@ function Index() {
                       Quantity
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       id="quantity"
                       name="quantity"
                       className="border border-gray-300 rounded-md p-2"
@@ -121,7 +133,7 @@ function Index() {
                     <textarea
                       id="address"
                       name="address"
-                      className="border border-gray-300 rounded-md p-2"
+                      className="border border-gray-300 rounded-md p-2 resize-none"
                       placeholder="Enter address"
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}

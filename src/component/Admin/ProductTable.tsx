@@ -1,8 +1,12 @@
+//@ts-nocheck
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import Modal from '../Modal';
+import { CiEdit } from "react-icons/ci";
+import { MdDeleteOutline } from "react-icons/md";
 import UpdateProducts from './UpdateProducts';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface User {
     id: string;
@@ -36,7 +40,7 @@ console.log("order",data)
     const handleDelete = async (id: string) => {
       try {
             const response = await axios.delete(`http://localhost:9000/products/${id}`);
-            toast.success("Category is sucessfully deleted")
+            toast.success("Product is sucessfully deleted")
     
           } catch (error) {
             console.error('Error deleting category:', error);
@@ -67,14 +71,14 @@ console.log("order",data)
                             <td className="py-3 text-center">{row.price}</td>
                             {/* <td className="py-3 text-center">{row.KG}</td> */}
                             <td className="py-3 text-center">
-                                <button onClick={() => handleUpdate(row)} className='bg-green-300 text-[8px] px-2 font-extrabold rounded-sm mr-2'>Update</button>
-                                <button onClick={() => handleDelete(row._id)} className='bg-red-300 text-[8px] px-2 font-extrabold rounded-sm'>Delete</button>
+                                <button onClick={() => handleUpdate(row)} className='text-[8px] px-2 font-extrabold rounded-sm mr-2'><CiEdit className='w-[20px] h-[40px]'/></button>
+                                <button onClick={() => handleDelete(row._id)} className=' text-[8px] px-2 font-extrabold rounded-sm'><MdDeleteOutline className='w-[20px] h-[40px]'/></button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-        
+                    
                       <UpdateProducts productId={selectedproductId}
                         isOpen={isModalOpen} 
                         onClose={closeModal} 

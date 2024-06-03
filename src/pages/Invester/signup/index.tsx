@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // @ts-nocheck
 import Layout from '@/component/Buyer/Layout';
 import Link from 'next/link';

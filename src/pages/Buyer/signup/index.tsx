@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // @ts-nocheck
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -35,8 +36,10 @@ const Index = () => {
       });
       toast.success(response.data.message);
       // setError('');
+      setTimeout(() => {  
+        router.push("/Buyer/login");
+      }, 2000);
     
-      router.push("/Buyer/login");
     } catch (error) {
       console.error('Error:', error.message);
       toast.error(error.message);

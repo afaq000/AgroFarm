@@ -29,7 +29,7 @@ const Addproducts = ({
 }: Props) => {
   return (
     <div className={`${className} w-full h-full max-h-[80vh] flex flex-col gap-2 p-2 overflow-y-auto`}>
-      <p className="text-lg font-bold -mt-[25px]">Details</p>
+      <p className="text-lg font-bold -mt-[25px] mt-2">Details</p>
 
       <div className="flex flex-col">
         <label htmlFor="file" className="text-sm font-semibold py-1">
@@ -80,7 +80,7 @@ const Addproducts = ({
           Product Price
         </label>
         <input
-          type="text"
+          type="number"
           id="Price"
           name="Price"
           className="border border-gray-300 rounded-md p-2"
@@ -90,12 +90,12 @@ const Addproducts = ({
         />
       </div>
 
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center mt-2">
         <button
-          className="max-w-[80px] bg-blue-600 rounded-lg font-semibold px-3 py-1 text-white"
+          className="max-w-[150px] bg-blue-600 rounded-lg font-semibold px-3 py-2 text-white"
           onClick={onClick}
         >
-          <p>Order</p>
+          <p>Add Products</p>
         </button>
       </div>
     </div>

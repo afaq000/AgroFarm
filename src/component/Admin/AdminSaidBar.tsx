@@ -46,18 +46,18 @@ const AdminSaidBar: React.FC<SideBarProps> = ({
       href={item.link} // Make sure item.link is passed as href
       title={item.title}
       onClick={handleItemClick}
-      className={`text-[#092C4C] font-medium flex items-center text-center px-3 lg:pl-3 lg:pr-16 py-1 rounded-lg gap-1 md:gap-3 hover:bg-gray-500 text-[#092C4C]  w-full cursor-pointer ${
+      className={`text-[#092C4C] font-medium flex items-center text-center px- lg:pl-3 lg:pr-16 py-1 rounded-lg gap-1 md:gap-3 hover:bg-gray-500 w-full cursor-pointer ${
         item.link === router.pathname ||
         (router.pathname.startsWith(item.link) &&
-          item.link !== '/')
-          ? 'bg-gray-500 px-4 w-full'
+          item.link !== '')
+          ? ' px- w-full font-bold'
           : ''
       }`}
     >
       <p className="w-[15px] sm:w-[12px] text-[#092C4C] h-[15px] sm:h-[12px]">
         {item.icon}
       </p>
-      <p className="text-sm hidden sm:block">{item.title}</p>
+      <p className="text-xs md:text-sm lg:text-base font-bold hidden sm:block">{item.title}</p>
     </Link>
   )
 ))}

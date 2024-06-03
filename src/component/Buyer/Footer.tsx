@@ -41,9 +41,9 @@ Home</Link>
               <Link href="/Buyer/products" className="hover:underline me-2 md:me-6">Prodcuts</Link>
             </li>
             <li className='flex'>
-              <div className='w-2 sm:w-3 lg:w-10'>|</div>
+              {/* <div className='w-2 sm:w-3 lg:w-10'>|</div> */}
               {/* <Link href="Buyer/histroy" className="hover:underline me-2 md:me-6">Order</Link> */}
-              <Link href="/Buyer/histroy" className="hover:underline me-2 md:me-6">Order</Link>
+              {/* <Link href="/Buyer/histroy" className="hover:underline me-2 md:me-6">Order</Link> */}
             </li>
             <li className='flex'>
               <div className='w-2 sm:w-3 lg:w-10'>|</div>

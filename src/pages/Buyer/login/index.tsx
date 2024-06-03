@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 
 // @ts-nocheck
 import Layout from '@/component/Buyer/Layout';
@@ -8,6 +9,7 @@ import axios from 'axios'; // Import axios for making HTTP requests
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ForgotPassword from '@/component/ForgotPassword';
 
 const Index = () => {
   const [showModal, setShowModal] = useState(false); 
@@ -16,6 +18,11 @@ const Index = () => {
     password: ''
   });
   const router = useRouter();
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
 
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
@@ -35,7 +42,7 @@ const Index = () => {
       toast.success(response.data.message);
       // setError('');
     
-      router.push("/Buyer/home");
+      router.push("/");
     } catch (error) {
       toast.error(error.message);
     }
@@ -181,6 +188,26 @@ const Index = () => {
           </div>
         </Modal>
       )}
+
+<Modal
+                show={showModal}
+                className="!w-full overflow-auto"
+                containerClass="w-[70%] sm:w-1/2 md:w-1/3 px-1 sm:px-4 bg-white"
+                onClose={handleModalClose}
+            >
+                <div className="!w-full flex flex-col items-center">
+                    <div className="flex justify-end w-full">
+                        <div
+                            onClick={handleModalClose}
+                            className="relative top bg-slate-100 w-5 h-5 flex justify-center items-center rounded-full -left-3 sm:top-2 cursor-pointer"
+                        >
+                            X
+                        </div>
+                    </div>
+        <ForgotPassword/>
+        </div>
+            </Modal>
+
 
       <ToastContainer/>
     </div>

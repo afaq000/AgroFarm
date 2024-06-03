@@ -1,0 +1,23 @@
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
+const withAuth = (WrappedComponent) => {
+  return (props) => {
+    const router = useRouter();
+    const isAuthenticated = typeof window !== 'undefined' && !!localStorage.getItem('token');
+
+    useEffect(() => {
+      if (!isAuthenticated) {
+        router.replace('/admin/login');
+      }
+    }, [isAuthenticated, router]);
+
+    if (!isAuthenticated) {
+      return null; // or a loading spinner
+    }
+
+    return <WrappedComponent {...props} />;
+  };
+};
+
+export default withAuth;

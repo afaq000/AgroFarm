@@ -1,9 +1,10 @@
 import AdminSaidBar from '@/component/Admin/AdminSaidBar';
 import Header from '@/component/Admin/Header'
 import React, { useEffect, useState } from 'react'
-import { Chat, Home, Task, Finance } from '../../../component/icon/sidebar';
+import { Chat, Home, Task, Finance, Attendance, Rewards } from '../../../component/icon/sidebar';
 import InvesterTable from '@/component/Admin/InvesterTable';
 import axios from 'axios';
+import { BoxIcon } from '@/component/icon';
 
 function Index() {
     const handleApprove = (id: string) => {
@@ -13,13 +14,12 @@ function Index() {
       {
         icon: <Home />,
         title: 'Dashboard',
-        link: '/admin',
+        link: '/admin/dashboard',
       },
-    
       {
         icon: <Finance />,
-        title: 'Invester ',
-        link: '/admin/invester',
+        title: 'investor',
+        link: '/admin/investor',
       },
       {
         icon: <Task />,
@@ -27,15 +27,20 @@ function Index() {
         link: '/admin/users',
       },
       {
-        icon: <Chat />,
+        icon: <BoxIcon />,
         title: 'Order',
         link: '/admin/order',
       },
       {
-        icon: <Chat />,
+        icon: <Attendance />,
         title: 'Products',
         link: '/admin/products',
       },
+      {
+        icon: <Rewards />,
+        title: 'Plans',
+        link: '/admin/plans',
+    },
     ];
       const [investors, setInvestors] = useState([]);
 
@@ -61,6 +66,7 @@ function Index() {
       />
       <div className='w-full flex justify-center items-center px-10 '>
         <div className='w-[80%] px-2 sm:px-5'>
+          <p className='px-14 mt-10 text-[#092C4C] font-extrabold text-2xl'>INVESTOR</p>
         <InvesterTable data={investors} handleApprove={()=>{}} handleReject={()=>{}}
                />
       </div>

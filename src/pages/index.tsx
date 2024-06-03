@@ -45,11 +45,11 @@ function index() {
              AGROFRAM
           </p>
           <p className="text-center">_________________</p>
-          <p className="text-center font-semibold text-gray-500">
+          {/* <p className="text-center font-semibold text-gray-500">
            AGROFRAM is the excellent source of vitamins E, C, and A. It
             also contains allicin, which has been known for its antibacterial
             properties.
-          </p>
+          </p> */}
           <div className="flex flex-col md:flex md:flex-row w-full py-5 gap-4">
             <div className="w-full md:w-1/2 text-justify">
               <p>
@@ -137,8 +137,7 @@ function index() {
           </p>
           <p className="text-center">_________________</p>
           <p className="text-center font-semibold text-gray-500">
-            Farmers below are successfully growing NARC G1 Garlic? Hear from
-            these members.
+            Client Reviews about AgroFarms
           </p>
         </div>
 
@@ -196,7 +195,7 @@ function index() {
     <div className="w-full flex flex-col">
       <div>
         <p className="text-white text-xl sm:text-2xl lg:text-4xl font-bold z-9999999">Our Products</p>
-        <p className="text-white text-xs sm:text-sm md:text-base lg:text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro tenetur eaque exercitationem neque quod laboriosam repellat rerum et nobis! Nihil beatae nesciunt reprehenderit placeat! Perspiciatis voluptatum est expedita vel eligendi?</p>
+        <p className="text-white text-xs sm:text-sm md:text-base lg:text-xl">This perennial herb boasts AN oversize pink or purple stem that seems within the spring or summer. below the bottom, a massive|an outsized|an oversized bulb consisting of 5 to 6 large cloves enclosed by smaller bulblets grows. </p>
      <Link href={"Buyer/products"} >
      <button className="bg-[#0b2a25]  text-white mt-2 hover:text-[#0b2a25] hover:bg-white font-bold text-base sm:text-lg px-2 py-1">
       OUR PRODUCTS

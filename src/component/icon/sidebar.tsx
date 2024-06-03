@@ -1,21 +1,21 @@
-export const Home = ({ width = 16, height = 16, color = 'black' }) => (
+export const Home = ({ width = 16, height = 16, color = '#092C4C' }) => (
   <svg
     width={width}
     height={height}
     viewBox="0 0 14 16"
-    fill="none"
+    fill="#092C4C"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
       fillRule="evenodd"
       clipRule="evenodd"
       d="M14 5.45796L8.57174 0.610318C7.66052 -0.203439 6.18314 -0.203439 5.27191 0.610318L0 5.31834V15.4H5.44444V11.2325C5.44444 10.4653 6.14089 9.84332 7 9.84332C7.85911 9.84332 8.55556 10.4653 8.55556 11.2325V15.4H14V5.45796ZM6.37186 1.59261L1.55556 5.89375V14.0108H3.88889V11.2325C3.88889 9.69805 5.28178 8.45415 7 8.45415C8.71822 8.45415 10.1111 9.69805 10.1111 11.2325V14.0108H12.4444V6.03337L7.4718 1.59261C7.16806 1.32136 6.6756 1.32136 6.37186 1.59261Z"
-      fill={color}
+      fill={"#092C4C"}
     />
   </svg>
 );
 
-export const Task = ({ width = 16, height = 16, color = 'black' }) => (
+export const Task = ({ width = 16, height = 16, color = '#092C4C' }) => (
   <svg
     width={width}
     height={height}
@@ -26,42 +26,42 @@ export const Task = ({ width = 16, height = 16, color = 'black' }) => (
     <g clipPath="url(#clip0_282_7196)">
       <path
         d="M14.6663 7.38668V8.00001C14.6655 9.43763 14.2 10.8365 13.3392 11.9879C12.4785 13.1393 11.2685 13.9817 9.88991 14.3893C8.5113 14.7969 7.03785 14.7479 5.68932 14.2497C4.3408 13.7515 3.18944 12.8307 2.40698 11.6247C1.62452 10.4187 1.25287 8.99205 1.34746 7.55755C1.44205 6.12305 1.99781 4.75756 2.93186 3.66473C3.86591 2.57189 5.1282 1.81027 6.53047 1.49344C7.93274 1.17662 9.39985 1.32157 10.713 1.90668"
-        stroke="#1F1F1F"
+        stroke="#092C4C"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M14.6663 7.38668V8.00001C14.6655 9.43763 14.2 10.8365 13.3392 11.9879C12.4785 13.1393 11.2685 13.9817 9.88991 14.3893C8.5113 14.7969 7.03785 14.7479 5.68932 14.2497C4.3408 13.7515 3.18944 12.8307 2.40698 11.6247C1.62452 10.4187 1.25287 8.99205 1.34746 7.55755C1.44205 6.12305 1.99781 4.75756 2.93186 3.66473C3.86591 2.57189 5.1282 1.81027 6.53047 1.49344C7.93274 1.17662 9.39985 1.32157 10.713 1.90668"
-        stroke="black"
+        stroke="#092C4C"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M14.6663 7.38668V8.00001C14.6655 9.43763 14.2 10.8365 13.3392 11.9879C12.4785 13.1393 11.2685 13.9817 9.88991 14.3893C8.5113 14.7969 7.03785 14.7479 5.68932 14.2497C4.3408 13.7515 3.18944 12.8307 2.40698 11.6247C1.62452 10.4187 1.25287 8.99205 1.34746 7.55755C1.44205 6.12305 1.99781 4.75756 2.93186 3.66473C3.86591 2.57189 5.1282 1.81027 6.53047 1.49344C7.93274 1.17662 9.39985 1.32157 10.713 1.90668"
-        stroke="black"
+        stroke="#092C4C"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M14.6667 2.66669L8 9.34002L6 7.34002"
-        stroke="#1F1F1F"
+        stroke="#092C4C"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M14.6667 2.66669L8 9.34002L6 7.34002"
-        stroke="black"
+        stroke="#092C4C"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M14.6667 2.66669L8 9.34002L6 7.34002"
-        stroke="black"
+        stroke="#092C4C"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -69,7 +69,7 @@ export const Task = ({ width = 16, height = 16, color = 'black' }) => (
     </g>
     <defs>
       <clipPath id="clip0_282_7196">
-        <rect width="16" height="16" fill={color} />
+        <rect width="16" height="16" fill={"#092C4C"} />
       </clipPath>
     </defs>
   </svg>
@@ -92,22 +92,22 @@ export const Chat = ({ width = 16, height = 16, color = 'black' }) => (
     />
   </svg>
 );
-export const Attendance = ({ width = 16, height = 16, color = 'black' }) => (
+export const Attendance = ({ width = 16, height = 16, color = '#092C4C' }) => (
   <svg
     width={width}
     height={height}
     viewBox="0 0 14 16"
-    fill="none"
+    fill="#092C4C"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M3.11111 12.4444H10.8889V10.8889H3.11111V12.4444Z" fill="black" />
-    <path d="M10.8889 9.33333H3.11111V7.77778H10.8889V9.33333Z" fill="black" />
-    <path d="M3.11111 6.22222H6.22222V4.66667H3.11111V6.22222Z" fill="black" />
+    <path d="M3.11111 12.4444H10.8889V10.8889H3.11111V12.4444Z" fill="#092C4C" />
+    <path d="M10.8889 9.33333H3.11111V7.77778H10.8889V9.33333Z" fill="#092C4C" />
+    <path d="M3.11111 6.22222H6.22222V4.66667H3.11111V6.22222Z" fill="#092C4C" />
     <path
       fillRule="evenodd"
       clipRule="evenodd"
       d="M2.33333 0C1.04467 0 0 1.04467 0 2.33333V13.2222C0 14.5109 1.04467 15.5556 2.33333 15.5556H11.6667C12.9553 15.5556 14 14.5109 14 13.2222V5.44444C14 2.43756 11.5624 0 8.55556 0H2.33333ZM2.33333 1.55556H7.77778V5.44444H12.4444V13.2222C12.4444 13.6518 12.0962 14 11.6667 14H2.33333C1.90378 14 1.55556 13.6518 1.55556 13.2222V2.33333C1.55556 1.90378 1.90378 1.55556 2.33333 1.55556ZM9.33333 1.63335C10.5866 1.88774 11.621 2.74482 12.1209 3.88889H9.33333V1.63335Z"
-      fill={color}
+      fill='#092C4C'
     />
   </svg>
 );
@@ -125,12 +125,12 @@ export const Salary = ({ width = 16, height = 16, color = 'black' }) => (
     />
   </svg>
 );
-export const Rewards = ({ width = 16, height = 16, color = 'black' }) => (
+export const Rewards = ({ width = 16, height = 16, color = '#092C4C' }) => (
   <svg
     width={width}
     height={height}
     viewBox="0 0 14 13"
-    fill="none"
+    fill="#092C4C"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -303,12 +303,12 @@ export const Employee = ({ width = 16, height = 16, color = 'black' }) => (
     />
   </svg>
 );
-export const Finance = ({ width = 16, height = 16, color = 'black' }) => (
+export const Finance = ({ width = 16, height = 16, color = '#092C4C' }) => (
   <svg
     width={width}
     height={height}
     viewBox="0 0 15 15"
-    fill="none"
+    fill="#092C4C"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

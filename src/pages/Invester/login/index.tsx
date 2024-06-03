@@ -1,43 +1,52 @@
-import Layout from '@/component/Buyer/Layout';
-import Link from 'next/link';
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Modal from '@/component/Modal';
-
+/* eslint-disable @next/next/no-img-element */
+//@ts-nocheck
+import Layout from "@/component/Buyer/Layout";
+import Link from "next/link";
+import React, { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Modal from "@/component/Modal";
+import ForgotPassword from "@/component/ForgotPassword";
 
 const Index = () => {
-  const [showModal, setShowModal] = useState(false); 
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:9000/investor/login', formData ,{
-        email: formData.email,
-        password: formData.password
-      })
+      const response = await axios.post(
+        "http://localhost:9000/investor/login",
+        formData,
+        {
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
-      localStorage.setItem("token",response?.data?.token)
-      localStorage.setItem("userId",response?.data?.userId)
+      localStorage.setItem("token", response?.data?.token);
+      localStorage.setItem("userId", response?.data?.userId);
       toast.success(response.data.message);
       // setError('');
-    
-      router.push("/Invester/home");
-      
+
+      router.push("/Invester/");
     } catch (error) {
-      console.error('Error:', error.message);
+      console.error("Error:", error.message);
       toast.error(error.message);
     }
   };
@@ -107,14 +116,26 @@ const Index = () => {
                     >
                       Login
                     </button>
-                    <span className='px-2 hover:underline cursor-pointer text-xs' onClick={() => setShowModal(true)}>Forgotten password?</span>
+                    <span
+                      className="px-2 hover:underline cursor-pointer text-xs"
+                      onClick={() => setShowModal(true)}
+                    >
+                      Forgotten password?
+                    </span>
                   </div>
                   <div className=" py-2 lg:w-1/2">
                     <div>
-                      {' '}
+                      {" "}
                       <p className=" text-sm">
-                        <span className=''> Don't have an account? </span> 
-                        <span className='font-bold text-[#4F46E5]'><Link href={'/Invester/signup'} className='hover:underline'>Register</Link></span> 
+                        <span className=""> Donot have an account? </span>
+                        <span className="font-bold text-[#4F46E5]">
+                          <Link
+                            href={"/Invester/signup"}
+                            className="hover:underline"
+                          >
+                            Register
+                          </Link>
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -132,7 +153,7 @@ const Index = () => {
         >
           <div className="!w-full flex flex-col items-center">
             <h2 className="text-xl mb-4">Reset Password</h2>
-            <form  className="w-full">
+            <form className="w-full">
               <div className="mt-4">
                 <label
                   htmlFor="resetEmail"
@@ -163,7 +184,26 @@ const Index = () => {
           </div>
         </Modal>
       )}
-      <ToastContainer/>
+
+      <Modal
+        show={showModal}
+        className="!w-full overflow-auto"
+        containerClass="w-[70%] sm:w-1/2 md:w-1/3 px-1 sm:px-4 bg-white"
+        onClose={handleModalClose}
+      >
+        <div className="!w-full flex flex-col items-center">
+          <div className="flex justify-end w-full">
+            <div
+              onClick={handleModalClose}
+              className="relative top bg-slate-100 w-5 h-5 flex justify-center items-center rounded-full -left-3 sm:top-2 cursor-pointer"
+            >
+              X
+            </div>
+          </div>
+          <ForgotPassword />
+        </div>
+      </Modal>
+      <ToastContainer />
     </div>
   );
 };

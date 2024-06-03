@@ -1,14 +1,16 @@
+//@ts-nocheck
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminSaidBar from '@/component/Admin/AdminSaidBar';
 import Header from '@/component/Admin/Header';
-import { Chat, Home, Task, Finance } from '../../../component/icon/sidebar';
+import { Chat, Home, Task, Finance, Attendance, Rewards } from '../../../component/icon/sidebar';
 // import OrderTable from '@/component/Admin/OrderTable';
 import Modal from '@/component/Modal';
 import Addproducts from '../../../component/Admin/Addproducts';
 import OrderTable from '@/component/Admin/ProductTable';
+import { BoxIcon } from '@/component/icon';
 
 function Index() {
     const [showModal, setShowModal] = useState(false);
@@ -100,31 +102,36 @@ function Index() {
 
     const data = [
         {
-            icon: <Home />,
-            title: 'Dashboard',
-            link: '/admin',
+          icon: <Home />,
+          title: 'Dashboard',
+          link: '/admin/dashboard',
         },
         {
-            icon: <Finance />,
-            title: 'Investor',
-            link: '/admin/investor',
+          icon: <Finance />,
+          title: 'investor',
+          link: '/admin/investor',
         },
         {
-            icon: <Task />,
-            title: 'Users',
-            link: '/admin/users',
+          icon: <Task />,
+          title: 'Users',
+          link: '/admin/users',
         },
         {
-            icon: <Chat />,
-            title: 'Order',
-            link: '/admin/order',
+          icon: <BoxIcon />,
+          title: 'Order',
+          link: '/admin/order',
         },
         {
-            icon: <Chat />,
-            title: 'Products',
-            link: '/admin/products',
+          icon: <Attendance />,
+          title: 'Products',
+          link: '/admin/products',
         },
-    ];
+        {
+          icon: <Rewards />,
+          title: 'Plans',
+          link: '/admin/plans',
+      },
+      ];
 
     return (
         <div className="w-full">
@@ -144,6 +151,7 @@ function Index() {
                     </button>
                 </div>
                 <div className="w-[80%] px-2 sm:px-10">
+                <p className='px-14 xxs:-mt-14 text-[#092C4C] font-extrabold text-2xl'>PRODUCTS</p>
                     <OrderTable data={products} />
                 </div>
             </div>

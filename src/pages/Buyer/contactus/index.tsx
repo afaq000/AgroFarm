@@ -1,11 +1,9 @@
+//@ts-nocheck
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
-import Header from '../../components/Header';
-import HeroSection from '../../components/HeroSection';
-import Footer from '../../components/Footer';
 import Layout from '@/component/Buyer/Layout';
 
 const ContactForm = () => {
@@ -26,10 +24,9 @@ const ContactForm = () => {
         e.preventDefault();
         try {
             if (localStorage.getItem("token") === null) {
-                // Handle when user is not logged in
             } else {
                 const response = await axios.post("http://localhost:9000/contact", formData);
-                console.log(response.data);
+                console.log(response.data,"daataaa");
                 toast.success(response.data.message);
                 setFormData({
                     firstName: '',
@@ -64,10 +61,15 @@ const ContactForm = () => {
                     <div className='flex flex-col text-[#092C4C]'>
                     <div className='flex flex-col md:flex-row justify-between w-full  items-center !mt-8 py-2 px-4'>
                     <div className="w-full   p-1">
+                        <a     href={`https://wa.me/+923419277478`}>
                         <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                            <h2 className="text-lg font-semibold mb-2">Contact Information</h2>
-                            <p className="text-gray-600 dark:text-gray-300 mb-2">Phone: +1-123-456-7890</p>
-                        </div>
+                        <h2 className="text-lg font-semibold mb-2">Contact Information</h2>
+                            <p className="text-gray-600 dark:text-gray-300 mb-2">Phone: +1-123-456-7890</p> 
+
+                        </div> 
+                        </a>
+                        
+                        
                     </div>
                     {/* Working hours card */}
                     <div className="w-full p-1">
