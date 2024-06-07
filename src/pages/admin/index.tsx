@@ -19,6 +19,7 @@ const Index = () => {
   const [userId, setUserId] = useState("");
   const [token, setToken] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const router = useRouter();
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
@@ -36,7 +37,7 @@ const Index = () => {
       localStorage.setItem("token", response?.data?.token);
       localStorage.setItem("userId", response?.data?.userId);
 
-      toast.success(response.data.message);
+      toast.success(response?.data?.message);
 
       router.push("/admin/dashboard");
     } catch (error) {
@@ -46,6 +47,10 @@ const Index = () => {
 
   const handleModalClose = () => {
     setShowModal(false);
+  };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
   };
 
   return (
@@ -87,7 +92,7 @@ const Index = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="mt-6">
+                {/* <div className="mt-6">
                   <label
                     htmlFor="password"
                     className="block w-full text-base font-medium text-gray-700 dark:text-gray-300"
@@ -104,6 +109,49 @@ const Index = () => {
                     value={formData.password}
                     onChange={handleChange}
                   />
+                </div> */}
+
+<div className="mt-6 relative">
+                  <label
+                    htmlFor="password"
+                    className="block w-full text-base font-medium text-gray-700 dark:text-gray-300"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type={passwordVisible ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    autoComplete="new-password"
+                    className="mt-1 px-3 border py-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                  <div className="absolute inset-y-0 right-0 top-7 pr-3 flex items-center text-sm leading-5">
+                    <svg
+                      className="h-6 text-gray-700 cursor-pointer"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      onClick={togglePasswordVisibility}
+                    >
+                      {passwordVisible ? (
+                       <path
+                       fillRule="evenodd"
+                       clipRule="evenodd"
+                       d="M12 5c-7 0-12 7-12 7s5 7 12 7 12-7 12-7-5-7-12-7zm0 12c-3.036 0-5.529-2.037-6.472-3C6.471 13.037 8.964 11 12 11s5.529 2.037 6.472 3c-.943.963-3.436 3-6.472 3zm0-2a4 4 0 110-8 4 4 0 010 8z"
+                     />
+                      ) : (
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M12 5c-7 0-12 7-12 7s5 7 12 7 12-7 12-7-5-7-12-7zm0 12c-3.036 0-5.529-2.037-6.472-3C6.471 13.037 8.964 11 12 11s5.529 2.037 6.472 3c-.943.963-3.436 3-6.472 3zm0-8a4 4 0 100 8 4 4 0 000-8z"
+                        />
+                      )}
+                    </svg>
+                  </div>
                 </div>
 
                 <div className="mt-6 flex flex-col lg:flex-row justify-between items-center">
@@ -114,26 +162,26 @@ const Index = () => {
                     >
                       Login
                     </button>
-                    <span
+                    {/* <span
                       className="px-2 hover:underline cursor-pointer text-xs"
                       onClick={() => setShowModal(true)}
                     >
                       Forgotten password?
-                    </span>
+                    </span> */}
                   </div>
                   <div className="py-2 lg:w-1/2">
                     <div>
                       {" "}
                       <p className=" text-sm">
-                        <span className=""> Donot have an account? </span>
-                        <span className="font-bold text-[#4F46E5]">
+                        {/* <span className=""> Donot have an account? </span> */}
+                        {/* <span className="font-bold text-[#4F46E5]">
                           <Link
                             href={"/admin/signup"}
                             className="hover:underline"
                           >
                             Register
                           </Link>
-                        </span>
+                        </span> */}
                       </p>
                     </div>
                   </div>
@@ -144,47 +192,9 @@ const Index = () => {
           </div>
         </div>
       </section>
-      {showModal && (
-        <Modal
-          show={showModal}
-          containerClass="w-[70%] sm:w-1/2 md:w-1/3 px-1 sm:px-4 bg-white py-2 rounded"
-          onClose={() => setShowModal(false)}
-        >
-          <div className="!w-full flex flex-col items-center">
-            <h2 className="text-xl mb-4">Reset Password</h2>
-            <form className="w-full">
-              <div className="mt-4">
-                <label
-                  htmlFor="resetEmail"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="resetEmail"
-                  name="resetEmail"
-                  placeholder="Enter your email"
-                  className="mt-1 px-3 border py-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                  // value={resetEmail}
-                  // onChange={(e) => setResetEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mt-6 flex justify-center">
-                <button
-                  type="submit"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </Modal>
-      )}
+  
 
-      <Modal
+      {/* <Modal
         show={showModal}
         className="!w-full overflow-auto"
         containerClass="w-[70%] sm:w-1/2 md:w-1/3 px-1 sm:px-4 bg-white"
@@ -201,7 +211,7 @@ const Index = () => {
           </div>
           <ForgotPassword />
         </div>
-      </Modal>
+      </Modal> */}
       <ToastContainer />
     </div>
   );

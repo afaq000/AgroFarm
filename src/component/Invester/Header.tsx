@@ -14,14 +14,14 @@ const Header = () => {
 
   useEffect(() => {
     // Check if user is logged in
-    setIsLoggedIn(localStorage.getItem('token') != null);
+    setIsLoggedIn(localStorage.getItem('role') != null);
   }, []);
 
 
   const handleAuthClick = () => {
     if (isLoggedIn) {
       // Handle logout
-      localStorage.removeItem('token');
+      localStorage.removeItem('role');
       localStorage.removeItem('userId'); // Assuming userId is also stored
       setIsLoggedIn(false);
       router.push('/Invester/login');

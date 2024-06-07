@@ -24,8 +24,8 @@ const ForgotPassword = () => {
       setError(data.message)
       toast.success(data.message)
     } catch (err) {
-        setError("user not found")
-        toast.error("user not found")
+        setError("Server is busy")
+        toast.error("Server is busy")
     
     }
   };

@@ -49,17 +49,19 @@ function Navbar() {
             𝒜𝒢𝑅𝒪𝐹𝑅𝒜𝑀
       </span>
           </div>
-          <div className="hidden md:flex md:w-[60%] lg:w-[60%]">
+          <div className="hidden md:flex md:w-[90%] lg:w-[90%]">
             <div className="w-full flex justify-end">
-              <div className="w-full  flex justify-between text-white font-medium">
-                <div className='w-1/2 flex justify-between'>
-                <Link className="teal-link borderYtoX" href={"/"}>Home</Link>
-                <Link className="teal-link borderYtoX" href={"/Buyer/products"}>Product</Link>
+              <div className="w-full flex justify-between text-white font-medium">
+                <div className='w-[60%] mt-2 lg:mt-0 lg:w-[60%] flex justify-between'>
+                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/"}>Home</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C] " href={"/Buyer/products"}>Product</Link>
                 
-                <Link className="teal-link borderYtoX" href={"/Buyer/contactus"}>Contact</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Buyer/contactus"}>Contact</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Invester"}>Invester</Link>
+                {/* <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/admin"}>Admin</Link> */}
                 </div>
                 {/* <Link className="teal-link borderYtoX" href={"/Buyer/histroy"}>Order</Link> */}
-<div className='w-[30%] flex justify-end' >
+<div className='w-[10%] flex justify-end' >
                 {/* <Link className="teal-link borderYtoX" href={"/Buyer/login"}>Logout</Link> */}
                 <button
         onClick={handleAuthClick}
@@ -117,7 +119,7 @@ function Navbar() {
           <Link className="teal-link borderYtoX hover:underline" href={"/"}>Home</Link>
                 <Link className="teal-link borderYtoX hover:underline" href={"/Buyer/products"}>Product</Link>
                 {/* <Link className="teal-link borderYtoX hover:underline" href={"/Buyer/home"}>Order</Link> */}
-
+                <Link className="teal-link borderYtoX hover:underline" href={"/Invester"}>Invester</Link>
                 <Link className="teal-link borderYtoX hover:underline" href={"/Buyer/contactus"}>Contact</Link>
                 <Link className="teal-link borderYtoX hover:underline" onClick={handleAuthClick} href={''}>
                   {/* login */}

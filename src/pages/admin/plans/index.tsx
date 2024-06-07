@@ -137,12 +137,12 @@ const response = await axios.put(`http://localhost:9000/update/${currentPlan._id
     amount: updateAmount,
     interestRate: updateInterestRate
 });
-            toast.success(response.data.message);
-            setShowUpdateModal(false); // Close modal on success
-            fetchPlans(); // Refresh the plans list
+            toast.success("plane is sucessfully updated");
+            setShowUpdateModal(false); 
+            fetchPlans(); 
         } catch (error) {
             console.error(error);
-            toast.error('Internal Server Error');
+            // toast.error('Internal Server Error');
         }
     };
 
@@ -154,15 +154,15 @@ const response = await axios.put(`http://localhost:9000/update/${currentPlan._id
                 mainClassName="max-w-[320px] w-24 sm:w-1/6 text-black"
                 SideBarLogoClassName={''}
             />
-            <div className="w-full flex flex-col justify-center items-center px-10 ">
-                <div className='w-full flex justify-end mt-10'>
-                    <button className='px-5 py-3 bg-[#092C4C] rounded-md text-white font-semibold' onClick={handleAddPlans}>
-                        Add Plans +
+            <div className="w-full flex flex-col justify-center items-center px-10 " >
+                <div className='w-full flex justify-end mt-5'>
+                    <button onClick={handleAddPlans} className='px-5 py-3 bg-[#092C4C] rounded-md text-white font-semibold' >
+                        <p >Add Plans +</p>
                     </button>
                 </div>
               
                 <div className="w-[80%]  ml-20 sm:ml-36 mt-10">
-                <p className='px-14 xxs:-mt-20 -ml-10 text-[#092C4C] font-extrabold text-2xl'>PLANS</p>
+                <p className='px-14  -ml-10 text-[#092C4C] font-extrabold text-2xl'>PLANS</p>
                    <div className=' overflow-x-auto py-10'>
                     <table className="w-full min-w-[500px] text-[#092C4C]">
                         <thead>

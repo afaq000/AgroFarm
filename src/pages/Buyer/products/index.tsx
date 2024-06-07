@@ -85,7 +85,8 @@ function Index() {
              <div key={index} className='w-full md:w-1/4 flex flex-col text-[#092C4C]  shadow-md '>
                 <img src={item.imageUrl} alt='' className='object-cover h-[200px] w-full' />
                 <p className='text-lg font-bold px-3'>{item.name}</p>
-                <p className='text-sm px-3'>{item.description}</p>
+                {/* <p className='text-sm px-3'>{item.description}</p> */}
+                <p className='text-sm px-3'>{item.description.slice(0, 30)}...</p>
                 <p className='text-lg px-3 font-bold'>Rs: {item.price}</p>
                 <button onClick={() => handleBookButtonClick(item._id)} className='mt-6 w-full bg-[#092C4C] py-3 text-white font-bold'>Order</button>
               </div>

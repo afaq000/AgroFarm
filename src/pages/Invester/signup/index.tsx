@@ -9,6 +9,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Index = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -24,6 +26,10 @@ const Index = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    if (formData.password !== formData.password_confirmation) {
+      toast.error("Password and confirm password do not match");
+      return;
+    }
     try {
       const response = await axios.post('http://localhost:9000/investor/signup', {
         email: formData.email,
@@ -39,8 +45,16 @@ const Index = () => {
     
     
     } catch (error) {
-      toast.error(error);
+      toast.error(error.message);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
 
@@ -101,7 +115,7 @@ const Index = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="mt-6">
+                {/* <div className="mt-6">
                   <label
                     htmlFor="password"
                     className="block w-full text-base font-medium text-gray-700 dark:text-gray-300"
@@ -136,6 +150,91 @@ const Index = () => {
                     value={formData.password_confirmation}
                     onChange={handleChange}
                   />
+                </div> */}
+
+<div className="mt-6 relative">
+                  <label
+                    htmlFor="password"
+                    className="block w-full text-base font-medium text-gray-700 dark:text-gray-300"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type={passwordVisible ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    autoComplete="new-password"
+                    className="mt-1 px-3 border py-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                  <div className="absolute inset-y-0 right-0 top-7 pr-3 flex items-center text-sm leading-5">
+                    <svg
+                      className="h-6 text-gray-700 cursor-pointer"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      onClick={togglePasswordVisibility}
+                    >
+                      {passwordVisible ? (
+                        <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M12 5c-7 0-12 7-12 7s5 7 12 7 12-7 12-7-5-7-12-7zm0 12c-3.036 0-5.529-2.037-6.472-3C6.471 13.037 8.964 11 12 11s5.529 2.037 6.472 3c-.943.963-3.436 3-6.472 3zm0-2a4 4 0 110-8 4 4 0 010 8z"
+                      />
+                      ) : (
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M12 5c-7 0-12 7-12 7s5 7 12 7 12-7 12-7-5-7-12-7zm0 12c-3.036 0-5.529-2.037-6.472-3C6.471 13.037 8.964 11 12 11s5.529 2.037 6.472 3c-.943.963-3.436 3-6.472 3zm0-8a4 4 0 100 8 4 4 0 000-8z"
+                        />
+                      )}
+                    </svg>
+                  </div>
+                </div>
+                <div className="mt-6 relative">
+                  <label
+                    htmlFor="password_confirmation"
+                    className="block w-full text-base font-medium text-gray-700 dark:text-gray-300"
+                  >
+                    Confirm Password
+                  </label>
+                  <input
+                    type={confirmPasswordVisible ? "text" : "password"}
+                    id="password_confirmation"
+                    name="password_confirmation"
+                    placeholder="Enter Confirm Password"
+                    autoComplete="new-password"
+                    className="mt-1 px-3 border py-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    value={formData.password_confirmation}
+                    onChange={handleChange}
+                  />
+                  <div className="absolute inset-y-0 right-0 top-7 pr-3 flex items-center text-sm leading-5">
+                    <svg
+                      className="h-6 text-gray-700 cursor-pointer"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      onClick={toggleConfirmPasswordVisibility}
+                    >
+                      {confirmPasswordVisible ? (
+                         <path
+                         fillRule="evenodd"
+                         clipRule="evenodd"
+                         d="M12 5c-7 0-12 7-12 7s5 7 12 7 12-7 12-7-5-7-12-7zm0 12c-3.036 0-5.529-2.037-6.472-3C6.471 13.037 8.964 11 12 11s5.529 2.037 6.472 3c-.943.963-3.436 3-6.472 3zm0-2a4 4 0 110-8 4 4 0 010 8z"
+                       />
+                      ) : (
+                        <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M12 5c-7 0-12 7-12 7s5 7 12 7 12-7 12-7-5-7-12-7zm0 12c-3.036 0-5.529-2.037-6.472-3C6.471 13.037 8.964 11 12 11s5.529 2.037 6.472 3c-.943.963-3.436 3-6.472 3zm0-8a4 4 0 100 8 4 4 0 000-8z"
+                      />
+                      )}
+                    </svg>
+                  </div>
                 </div>
                 <div className="mt-6 flex justify-between items-center">
                   <div className="w-1/2">
