@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <div className="flex  w-full justify-between px-3 md:px-8 sm:py-1  shadow-lg sticky top-0 z-20 bg-white items-center">
       <span className='text-[#092C4C] text-2xl font-bold py-2'>
-      𝒜𝒢𝑅𝒪𝐹𝑅𝒜𝑀      </span>
+      ℝ𝕆𝕐𝔸𝕃𝔸𝔾ℝ𝕆𝔽𝔸ℝ𝕄     </span>
       {/* <button
         onClick={() => router?.push('/Invester/investerHistroy')}
         className=" px-4 md:px-8  sm:py-1 text-white bg-[#092C4C] rounded-md cursor-pointer"

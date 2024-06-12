@@ -32,8 +32,8 @@ const Header = () => {
   // };
   return (
     <div className="flex  w-full justify-between px-3 md:px-8 sm:py-1  shadow-lg sticky top-0 z-20 bg-white items-center">
-      <span className='text-[#092C4C]  text-3xl font-bold py-2 cursor-pointer' onClick={hanldeclick}>
-      𝒜𝒢𝑅𝒪𝐹𝑅𝒜𝑀
+      <span className='text-[#092C4C]  text-xl font-bold py-2 cursor-pointer' onClick={hanldeclick}>
+      ℝ𝕆𝕐𝔸𝕃𝔸𝔾ℝ𝕆𝔽𝔸ℝ𝕄 
       </span>
 
       {/* <p className="text-center text-[#092C4C]  mt-5 font-semibold ">

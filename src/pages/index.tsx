@@ -29,8 +29,8 @@ function index() {
         {/* <Navbar/> */}
         {/* <HomeSlider /> */}
         <div className="w-full h-[500px] bg-[#092C4C] flex flex-col justify-center items-center   lg:flex lg:flex-row lg:justify-between">
-          <div className="text-white text-nowrap lg:text-wrap font-bold text-3xl xxs:text-4xl sm:text-4xl w-1/2 flex items-center justify-center px-5">
-                <p >WELCOME TO ROYAL AGROFRAM</p>
+          <div className="text-white text-nowrap lg:text-wrap font-bold text-xl xxs:text-xl sm:text-4xl w-1/2 flex items-center justify-center px-5">
+                <p >WELCOME TO ROYAL AGROFARM</p>
 
           </div>
           <div className="w-1/2 flex justify-center items-center">
@@ -42,7 +42,7 @@ function index() {
         </div>
         <div className="w-full px-5 md:px-14 flex flex-col ">
           <p className="text-center text-[#092C4C]  text-5xl mt-5 font-semibold ">
-           ROYAL AGROFRAM
+           ROYAL AGROFARM
           </p>
           <p className="text-center">_________________</p>
           {/* <p className="text-center font-semibold text-gray-500">
@@ -53,7 +53,7 @@ function index() {
           <div className="flex flex-col md:flex md:flex-row w-full py-5 gap-4">
             <div className="w-full md:w-1/2 text-justify">
               <p>
-              <span className="text-3xl font-bold">What is ROYAL AGROFRAM?</span> or Elephant garlic (Allium ampeloprasum)
+              <span className="text-3xl font-bold">What is ROYAL AGROFARM?</span> or Elephant garlic (Allium ampeloprasum)
                 seems like an enormous clove however if truth be told, isn’t
                 real garlic however additional closely associated with a leek.
                 it’s a hardy bulb with massive blue-green leaves. This perennial
@@ -210,11 +210,8 @@ function index() {
     </div>
   </div>
 </div>
-
-
-
-
       </div>
+      
     </Layout>
   );
 }

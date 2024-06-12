@@ -8,6 +8,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router";
+import InvestorFooter from "@/component/Invester/InvestorFooter";
 
 
 function Index() {
@@ -24,28 +25,17 @@ function Index() {
     setShowDetails1(!showDetails1);
   };
 
-  const toggleImage1 = () => {
-    setShowImage1(!showImage1);
-  };
 
   const toggleDetails2 = () => {
     setShowDetails2(!showDetails2);
   };
 
-  const toggleImage2 = () => {
-    setShowImage2(!showImage2);
-  };
 
   const toggleDetails3 = () => {
     setShowDetails3(!showDetails3);
   };
 
-  const toggleImage3 = () => {
-    setShowImage3(!showImage3);
-  };
-  const handleModalClose = () => {
-    setShowModal(false);
-  };
+
   const [plans, setPlans] = useState([]);
   const [planId,setPlaneId]=useState(null)
 
@@ -64,9 +54,6 @@ function Index() {
 
   const [purchaseDetails, setPurchaseDetails] = useState(null);
   const handleAddToCartClick = async () => {
-  //   {plans.map((item)=>{
-  //     setPlaneId(item._id)
-  //   })}
   const userId = localStorage.getItem("userId");
   if (!userId) {
     router.push(`/Invester/login`);
@@ -226,7 +213,11 @@ function Index() {
         <div className="w-full sm:w-[90%] md:[70%]"></div>
       </div>
       <ToastContainer/>
+      <div>
+              <InvestorFooter/>
+      </div>
     </div>
+    
   );
 }
 

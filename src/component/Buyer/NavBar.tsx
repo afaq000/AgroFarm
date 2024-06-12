@@ -45,19 +45,21 @@ function Navbar() {
       <div className="w-[95%] md:w-full flex px-2 md:px-10">
         <div className="w-full flex items-center justify-between">
           <div className="w-[20%] sm:w-[40%] md:w-[40%] text-white flex items-center font-extrabold">
-            <span className=' text-2xl font-bold py-2 cursor-pointer' onClick={hanldeclick}>
-            𝒜𝒢𝑅𝒪𝐹𝑅𝒜𝑀
+            <span className=' text-xl font-bold py-2 cursor-pointer' onClick={hanldeclick}>
+            {/* 𝒜𝒢𝑅𝒪𝐹𝑅𝒜𝑀 */}
+            {/* 𝚁𝙾𝚈𝙰𝙻𝙰𝙶𝚁𝙾𝙵𝙰𝚁𝙼 */}
+            ℝ𝕆𝕐𝔸𝕃𝔸𝔾ℝ𝕆𝔽𝔸ℝ𝕄
       </span>
           </div>
           <div className="hidden md:flex md:w-[90%] lg:w-[90%]">
             <div className="w-full flex justify-end">
-              <div className="w-full flex justify-between text-white font-medium">
+              <div className="w-full flex justify-between text-white font-extrabold">
                 <div className='w-[60%] mt-2 lg:mt-0 lg:w-[60%] flex justify-between'>
-                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/"}>Home</Link>
-                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C] " href={"/Buyer/products"}>Product</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-lg text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/"}>Home</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-lg text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C] " href={"/Buyer/products"}>Product</Link>
                 
-                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Buyer/contactus"}>Contact</Link>
-                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Invester"}>Invester</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-lg text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Buyer/contactus"}>Contact</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-lg text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Invester"}>Invester</Link>
                 {/* <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/admin"}>Admin</Link> */}
                 </div>
                 {/* <Link className="teal-link borderYtoX" href={"/Buyer/histroy"}>Order</Link> */}
@@ -73,6 +75,7 @@ function Navbar() {
               </div>
             </div>
           </div>
+        
           <div className="md:hidden">
             {!isOpen ? (
               <button className="text-white" onClick={toggleMenu}>
@@ -115,7 +118,7 @@ function Navbar() {
       {/* Dropdown menu */}
       {isOpen && (
         <div className="md:hidden  absolute w-full text-[#092C4C] bg-white border-[5px] border-[#092C4C] font-bold py-2 mt-44">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center ">
           <Link className="teal-link borderYtoX hover:underline" href={"/"}>Home</Link>
                 <Link className="teal-link borderYtoX hover:underline" href={"/Buyer/products"}>Product</Link>
                 {/* <Link className="teal-link borderYtoX hover:underline" href={"/Buyer/home"}>Order</Link> */}
