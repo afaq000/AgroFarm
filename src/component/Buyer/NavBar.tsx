@@ -46,8 +46,6 @@ function Navbar() {
         <div className="w-full flex items-center justify-between">
           <div className="w-[20%] sm:w-[40%] md:w-[40%] text-white flex items-center font-extrabold">
             <span className=' text-xl font-bold py-2 cursor-pointer' onClick={hanldeclick}>
-            {/* 𝒜𝒢𝑅𝒪𝐹𝑅𝒜𝑀 */}
-            {/* 𝚁𝙾𝚈𝙰𝙻𝙰𝙶𝚁𝙾𝙵𝙰𝚁𝙼 */}
             ℝ𝕆𝕐𝔸𝕃𝔸𝔾ℝ𝕆𝔽𝔸ℝ𝕄
       </span>
           </div>
@@ -62,9 +60,7 @@ function Navbar() {
                 <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Invester"}>Invester</Link>
                 {/* <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/admin"}>Admin</Link> */}
                 </div>
-                {/* <Link className="teal-link borderYtoX" href={"/Buyer/histroy"}>Order</Link> */}
 <div className='w-[10%] flex justify-end' >
-                {/* <Link className="teal-link borderYtoX" href={"/Buyer/login"}>Logout</Link> */}
                 <button
         onClick={handleAuthClick}
         className="px-4 md:px-8 sm:py-1 text-white bg-[#092C4C] rounded-md cursor-pointer"

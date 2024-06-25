@@ -29,13 +29,11 @@ const Image: React.FC<Props> = ({
       alt={alt}
       width={width}
       height={height}
-      // used for performance optimization
       loading="eager"
       className={className}
       style={style}
       onClick={onClick}
       priority={priority}
-      // used for rest props
       {...rest}
     />
   );
