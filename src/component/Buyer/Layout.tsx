@@ -19,7 +19,9 @@ const Layout: React.FC<Props> = ({ children }) => {
       <div className="w-full">
        <Navbar/>
       </div>
-      <div className="flex-1" id="scroll-2">{children}</div>
+      <div className="flex-1" id="scroll-2">
+        {children}
+        </div>
       <div className="w-full">
         <Footer className={""} />
       </div>

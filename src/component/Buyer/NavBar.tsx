@@ -55,11 +55,11 @@ function Navbar() {
             <div className="w-full flex justify-end">
               <div className="w-full flex justify-between text-white font-extrabold">
                 <div className='w-[60%] mt-2 lg:mt-0 lg:w-[60%] flex justify-between'>
-                <Link className="teal-link borderYtoX text-sm lg:text-lg text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/"}>Home</Link>
-                <Link className="teal-link borderYtoX text-sm lg:text-lg text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C] " href={"/Buyer/products"}>Product</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/"}>Home</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C] " href={"/Buyer/products"}>Product</Link>
                 
-                <Link className="teal-link borderYtoX text-sm lg:text-lg text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Buyer/contactus"}>Contact</Link>
-                <Link className="teal-link borderYtoX text-sm lg:text-lg text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Invester"}>Invester</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Buyer/contactus"}>Contact</Link>
+                <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/Invester"}>Invester</Link>
                 {/* <Link className="teal-link borderYtoX text-sm lg:text-base text-white hover:text-white px-2 hover:rounded-md hover:bg-[#092C4C]" href={"/admin"}>Admin</Link> */}
                 </div>
                 {/* <Link className="teal-link borderYtoX" href={"/Buyer/histroy"}>Order</Link> */}
