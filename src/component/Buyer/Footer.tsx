@@ -27,7 +27,7 @@
             
           </div>
           <ul className="flex justify-center items-center text-nowrap mb-6 text-[8px] xxs:text-[12px] sm:text-xs lg:text-sm font-medium text-white sm:mb-0 dark:text-gray-400">
-            <li className='pl-6 sm:pl-0 md:px-[10px] lg:px-[50px] '>
+            <li className='pl-6 sm:pl-0 md:px-[8px] lg:px-[50px] '>
             <Link href="/" className="hover:underline font-bold me-2 md:me-6 pl-4 ">©  ℝ𝕆𝕐𝔸𝕃𝔸𝔾ℝ𝕆𝔽𝔸ℝ𝕄</Link> 
             </li>
             <li className='flex'>
@@ -40,18 +40,13 @@ Home</Link>
               <Link href="/Buyer/products" className="hover:underline font-extrabold me-2 md:me-6">Prodcuts</Link>
             </li>
             <li className='flex'>
-              {/* <div className='w-2 sm:w-3 lg:w-10'>|</div> */}
-              {/* <Link href="Buyer/histroy" className="hover:underline me-2 md:me-6">Order</Link> */}
-              {/* <Link href="/Buyer/histroy" className="hover:underline me-2 md:me-6">Order</Link> */}
+            
             </li>
             <li className='flex'>
               <div className='w-2 sm:w-3 lg:w-10'>|</div>
               <Link href="/Buyer/contact" className="hover:underline font-extrabold me-2 md:me-6">Contact us</Link>
             </li>
-            {/* <li className='flex mr-4'>
-              <div className='w-2 sm:w-3 lg:w-10'>|</div>
-              <Link href="Buyer/signup" className="hover:underline me-2 md:me-6">SignUp</Link>
-            </li> */}
+
           </ul>
           <div className='hidden sm:flex w-full sm:w-1/5 flex justify-center sm:justify-end text-white'>
             <Link href={'/'}>
@@ -68,7 +63,7 @@ Home</Link>
           </div>
         </div>
       </div>
-      <div className='w-full text-center text-sm sm:text-base flex justify-center text-white bg-[#465975]'>
+      <div className='w-full text-center text-xs flex justify-center text-white bg-[#465975]'>
         <p>© Copyright 2012 - 2024 All rights reserved Royal Agro Farm</p>
       </div>
 
