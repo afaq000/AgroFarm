@@ -90,24 +90,7 @@ const Index = () => {
                     onChange={handleChange}
                   />
                 </div>
-                {/* <div className="mt-6">
-                  <label
-                    htmlFor="password"
-                    className="block w-full text-base font-medium text-gray-700 dark:text-gray-300"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter Password"
-                    autoComplete="new-password"
-                    className="mt-1 px-3 border py-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    value={formData.password}
-                    onChange={handleChange}
-                  />
-                </div> */}
+          
 
                 <div className="mt-6 relative">
                   <label
